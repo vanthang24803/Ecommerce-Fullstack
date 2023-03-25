@@ -20,7 +20,7 @@ const ShoppingList = () => {
 
   async function getItems() {
     const items = await fetch(
-      "http://localhost:2000/api/items?populate=image",
+      "http://localhost:1337/api/items?populate=image",
       { method: "GET" }
     );
     const itemsJson = await items.json();
@@ -29,7 +29,7 @@ const ShoppingList = () => {
 
   useEffect(() => {
     getItems();
-  }, []); 
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const topRatedItems = items.filter(
     (item) => item.attributes.category === "topRated"
